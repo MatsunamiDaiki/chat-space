@@ -52,7 +52,6 @@ Things you may want to cover:
 |name|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|messages_id|integer|null: false,foreign_key: true|
 
 ### Associaton
 - has_many :messages
