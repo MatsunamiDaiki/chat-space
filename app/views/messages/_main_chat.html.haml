@@ -1,0 +1,32 @@
+.chat
+  .header
+    .header__group
+      .header__groupname
+        グループ名 
+      %ul.header__memberlist
+        Member:
+        %li.header__membername
+          山田
+    .header__edit
+      =link_to "#", class: "heder__editlink" do
+        Edit
+  .messagefiled
+    .messagebox
+      .messageinfo
+        .messageinfo__username
+          名前
+        .messageinfo__date
+          7月
+      .message
+        .message__content
+          こんにちは
+      
+
+  .footer
+    %form.form
+      .form1
+        %input{"placeholder": "type a message", "type": "text", class: "form1content"}
+        %label{class: "form1icon"}
+          = icon('far', 'image', class: "form2icon")
+          %input{type: "file", class: "top-items__icon__a"}
+      %input{"name": "commit", "type": "submit", "value": "Send", class:"form2"}

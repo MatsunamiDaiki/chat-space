@@ -1,0 +1,16 @@
+.SideBar
+  .SideBar__user-name
+    .top-items
+      .top-items__name
+        Member
+      .top-items__icon
+        =link_to "#", class: "top-items__icon__a" do
+          = icon('fas', 'edit')
+        =link_to "#", class: "top-items__icon__b" do
+          = icon('fas', 'cog')
+  .SideBar__grouplist
+    .group
+      =link_to "#", class: "group__name" do
+        名前
+      =link_to "#", class:"group__message" do
+        こんにちは
