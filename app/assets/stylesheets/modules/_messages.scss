@@ -1,6 +1,12 @@
 * {
   box-sizing: border-box;
 }
+
+a {
+  color: white; 
+  margin-left: 5px;
+}
+
 .wrapper{
   display: flex;
 }
@@ -184,6 +190,8 @@
        }  
     } 
   }
+
+
 
 
   
