@@ -7,7 +7,7 @@
         -# =link_to "#", class: "top-items__icon__a" do
         -#   = icon('fas', 'edit')
         .top-items__icon__a
-          = link_to edit_user_path(current_user) do
+          = link_to new_group_path(current_user) do
             = icon('fas', 'edit')
         -# =link_to "#", class: "top-items__icon__b" do
           = icon('fas', 'cog')
@@ -16,11 +16,18 @@
             = icon('fas', 'cog')
           
   .SideBar__grouplist
-    .group
-      =link_to "#", class: "group__name" do
-        名前
-      =link_to "#", class:"group__message" do
-        こんにちは
+    -# .group
+    -#   =link_to "#", class: "group__name" do
+    -#     名前
+    -#   =link_to "#", class:"group__message" do
+    -#     こんにちは
+    - current_user.groups.each do |group|
+      .group
+        =link_to '#' do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません   
 
 
         
