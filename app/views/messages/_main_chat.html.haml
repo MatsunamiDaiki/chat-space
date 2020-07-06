@@ -2,31 +2,33 @@
   .header
     .header__group
       .header__groupname
-        グループ名 
+        = @group.name
       %ul.header__memberlist
         Member:
         %li.header__membername
-          山田
+          - @group.users.each do |user|
+            =user.name
     .header__edit
-      =link_to "#", class: "heder__editlink" do
-        Edit
+      -# =link_to "#", class: "heder__editlink" do
+      -#   Edit
+      =link_to 'Edit', edit_group_path(@group),class: 'heder__editlink'
   .messagefiled
-    .messagebox
-      .messageinfo
-        .messageinfo__username
-          名前
-        .messageinfo__date
-          7月
-      .message
-        .message__content
-          こんにちは
-      
+    = render @messages
+  -# .footer
+  -#   %form.form
+  -#     .form1
+  -#       %input{"placeholder": "type a message", "type": "text", class: "form1content"}
+  -#       %label{class: "form1icon"}
+  -#         = icon('far', 'image', class: "form2icon")
+  -#         %input{type: "file", class: "top-items__icon__a"}
+  -#     %input{"name": "commit", "type": "submit", "value": "Send", class:"form2"}
 
   .footer
-    %form.form
+    = form_with model: [@group, @message], html: {class: "form"}, local: true do |f|
       .form1
-        %input{"placeholder": "type a message", "type": "text", class: "form1content"}
-        %label{class: "form1icon"}
+        = f.text_field :content, class: 'form1content', placeholder: 'type a message'
+        = f.label :image, class: 'form1icon' do
           = icon('far', 'image', class: "form2icon")
-          %input{type: "file", class: "top-items__icon__a"}
-      %input{"name": "commit", "type": "submit", "value": "Send", class:"form2"}
+          = f.file_field :image, class: 'top-items__icon__a'
+      = f.submit 'Send', class: 'form2'
+      
