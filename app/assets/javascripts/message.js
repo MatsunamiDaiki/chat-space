@@ -49,18 +49,18 @@ $(function(){
       processData: false,
       contentType: false
     })
-
+    
     .done(function(data){
-      console.log(data);
       let html = buildHTML(data);
       $('.messagefield').append(html);
       $('form')[0].reset();
       $('.messagefield').animate({ scrollTop: $('.messagefield')[0].scrollHeight});
-      $('.form2').prop('disabled', false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-      $('.form2').prop("disabled", false);
-  });
+  })
+    .always(function(){
+      $('.form2').prop('disabled', false);
+  })
   });
 });
